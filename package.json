@@ -1,0 +1,33 @@
+{
+  "name": "config-to-appengine",
+  "version": "1.0.0",
+  "description": "Apply build environnement variables to app.yaml filtered by config.js custom environment variables",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "config-to-appengine": "./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loveindent/config-to-appengine.git"
+  },
+  "keywords": [
+    "App",
+    "Engine",
+    "config.js",
+    "gae",
+    "gcp"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loveindent/config-to-appengine/issues"
+  },
+  "homepage": "https://github.com/loveindent/config-to-appengine#readme",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "js-yaml": "^3.13.1"
+  }
+}

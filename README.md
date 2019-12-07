@@ -1,2 +1,2 @@
-# config-to-appengine
-Apply build environnement variables to app.yaml filtered by config.js custom environment variables
+# Config -> App Engine
+Apply build environment variables to `app.yaml` filtered by **config.js** custom environment variables
