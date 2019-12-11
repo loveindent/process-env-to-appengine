@@ -1,7 +1,7 @@
 {
-  "name": "config-to-appengine",
+  "name": "@loveindent/process-env-to-appengine",
   "version": "1.0.0",
-  "description": "Apply build environnement variables to app.yaml filtered by config.js custom environment variables",
+  "description": "Apply prcoess environnement variables to app.yaml filtered by config.js custom environment variables",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,10 @@
     "Engine",
     "config.js",
     "gae",
-    "gcp"
+    "gcp",
+    "env_variables",
+    "environment",
+    "variables"
   ],
   "author": "",
   "license": "MIT",

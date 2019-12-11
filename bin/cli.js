@@ -2,13 +2,45 @@
 const program = require('commander')
 const packageJSON = require('../package.json')
 const lib = require('../src')
+const check = require('../src/check')
 
 program
   .version(packageJSON.version, '-v, --version')
-  .option('-f, --from [string]', '...')
-  .option('-t, --to [string]', '...')
-  .option('-p, --prefix [string]', '...')
-  .description('...')
-  .parse(process.argv)
+  .option('-s, --source [string]', 'Source app.yaml file to complete with env_variables', './app.yaml')
+  .option('-d, --dest [string]', 'Destination to write file', './dist/app.yaml')
+  .option('-p, --prefix [string]', 'If you have to prefix process env like DEV_HOST add DEV_ to output HOST in app.yaml')
 
-lib(program)
+program
+  .command('apply')
+  .description('Apply env variables to destination app.yml file')
+  .action(function(options) {
+    console.info('\Process env to AppEngine')
+    console.info('\n>> Starting apply env variables')
+    const {
+      from,
+      to,
+      prefix
+    } = options.parent
+    console.info(`   from:   [${from}]`)
+    console.info(`   to:     [${to}]`)
+    console.info(`   prefix: [${prefix || 'no prefix'}]\n`)
+
+    lib({from, to, prefix})
+  })
+
+program
+  .command('check')
+  .description('Check if all environment variables are here, exit process if not')
+  .action(function(options) {
+    console.info('\Process env to AppEngine')
+    console.info('\n>> Checking environment variables presence')
+    const {
+      prefix
+    } = options.parent
+
+    check(prefix)
+  })
+
+program.parse(process.argv)
+
+if (!process.argv.slice(2).length) program.help();
