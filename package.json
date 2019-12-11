@@ -1,13 +1,13 @@
 {
   "name": "@loveindent/process-env-to-appengine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Apply prcoess environnement variables to app.yaml filtered by config.js custom environment variables",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "config-to-appengine": "./bin/cli.js"
+    "process-env-to-appengine": "./bin/cli.js"
   },
   "repository": {
     "type": "git",
