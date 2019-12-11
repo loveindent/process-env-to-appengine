@@ -14,9 +14,9 @@ function loadPackageJsonFile() {
   return packageJsonFile
 }
 
-function loadInputAppYamlFile(from) {
-  const inputAppYamlFile = yaml.safeLoad(fs.readFileSync(from, 'utf8'))
-  console.log(`   ✓ Found app.yaml at ${from}`)
+function loadInputAppYamlFile(source) {
+  const inputAppYamlFile = yaml.safeLoad(fs.readFileSync(source, 'utf8'))
+  console.log(`   ✓ Found app.yaml at ${source}`)
   return inputAppYamlFile
 }
 
@@ -34,11 +34,11 @@ function loadCustomEnvironmentVariablesFile() {
 }
 
 
-function loadFiles({from}) {
+function loadFiles({source}) {
   console.info('\n>> Find necessary files')
   return {
     packageJsonFile: loadPackageJsonFile(),
-    inputAppYamlFile: loadInputAppYamlFile(from),
+    inputAppYamlFile: loadInputAppYamlFile(source),
     customEnvironmentVariablesFile: loadCustomEnvironmentVariablesFile()
   }
 }

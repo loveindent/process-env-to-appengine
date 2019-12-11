@@ -12,20 +12,20 @@ program
 
 program
   .command('apply')
-  .description('Apply env variables to destination app.yml file')
+  .description('Apply env variables to destination app.yaml file')
   .action(function(options) {
     console.info('\Process env to AppEngine')
     console.info('\n>> Starting apply env variables')
     const {
-      from,
-      to,
+      source,
+      dest,
       prefix
     } = options.parent
-    console.info(`   from:   [${from}]`)
-    console.info(`   to:     [${to}]`)
+    console.info(`   source:   [${source}]`)
+    console.info(`   dest:     [${dest}]`)
     console.info(`   prefix: [${prefix || 'no prefix'}]\n`)
 
-    lib({from, to, prefix})
+    lib({source, dest, prefix})
   })
 
 program

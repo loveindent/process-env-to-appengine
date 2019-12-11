@@ -6,15 +6,15 @@ const processEnvVariables = process.env
 
 module.exports = function(options) {
   const {
-    from,
-    to,
+    source,
+    dest,
     prefix = '',
   } = options
   const {
     packageJsonFile,
     inputAppYamlFile,
     customEnvironmentVariablesFile,
-  } = loadFiles({from})
+  } = loadFiles({source})
   const necessaryEnvVariables = Object.values(flattenObject(customEnvironmentVariablesFile))
 
   console.info('\n>> Browse current env variables')
@@ -38,9 +38,10 @@ module.exports = function(options) {
   }
   for (const envVariableName in npmEnvVariables) {
     console.info(`   ✓ ${envVariableName}`)
+    if (!inputAppYamlFile.env_variables) inputAppYamlFile.env_variables = {}
     inputAppYamlFile.env_variables[envVariableName] = npmEnvVariables[envVariableName]
   }
 
-  console.info(`\n>> Update destination file ${to}`)
-  fs.writeFileSync(to, yaml.safeDump(inputAppYamlFile))
+  console.info(`\n>> Update destination file ${dest}`)
+  fs.writeFileSync(dest, yaml.safeDump(inputAppYamlFile))
 }
