@@ -4,6 +4,10 @@ const packageJSON = require('../package.json')
 const lib = require('../src')
 const check = require('../src/check')
 
+function list(val) {
+  return val.split(',').map(String);
+}
+
 program
   .version(packageJSON.version, '-v, --version')
   .option('-s, --source [string]', 'Source app.yaml file to complete with env_variables', './app.yaml')
@@ -31,14 +35,16 @@ program
 program
   .command('check')
   .description('Check if all environment variables are here, exit process if not')
+  .option('-o, --optional [list]', 'Specify list of optional env variables (seperated by coma, ex: HOST,ENV)', list, ['PORT'])
   .action(function(options) {
     console.info('\Process env to AppEngine')
     console.info('\n>> Checking environment variables presence')
     const {
-      prefix
+      prefix,
     } = options.parent
+    console.info(`   optional:   [${options.optional}]`)
 
-    check(prefix)
+    check(prefix, options.optional)
   })
 
 program.parse(process.argv)
