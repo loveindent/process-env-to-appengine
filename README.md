@@ -1,6 +1,9 @@
 # Process env to App Engine
 Apply process environment variables to `app.yaml` filtered by **config.js** custom environment variables.
 
+[![npm version](https://badge.fury.io/js/%40loveindent%2Fprocess-env-to-appengine.svg)](https://www.npmjs.com/package/@loveindent/process-env-to-appengine)
+[![npm download](https://img.shields.io/npm/dm/@loveindent/process-env-to-appengine)](https://www.npmjs.com/package/@loveindent/process-env-to-appengine)
+
 ## How to install
 ```
 npm i -D @loveindent/process-env-to-appengine
